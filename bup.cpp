@@ -1,24 +1,23 @@
 #include<iostream>
 #include<string>
 using namespace std;
+struct user{
+    string uid;
+    string pass;
+    string role;
+};
 
 user guest;
 
-struct user{
-    char uid[30];
-    char pass[10];
-    char role[10];
-};
-
 struct det{
-    char name[30];
-    char disease[50];
-    char symp[50];
-    char famhis[250];
-    char medi[250];
-    char diet[250];
-    char proc[250];
-    char res[200];
+    string name;
+    string disease;
+    string symp;
+    string famhis;
+    string medi;
+    string diet;
+    string proc;
+    string res;
 };
 
 user one{
@@ -51,27 +50,50 @@ det done{
 };
 
 void checkuser(){
-    char uname[30];
-char upass[10];
+string uname;
+string upass;
 cout<<"Enter you uid: "<<endl;
 cin>>uname;
 cout<<"enter the password for the uid "<<uname<<endl;
 cin>>upass;
 if(uname=="Parth"){
     if(upass=="abc"){
+        cout<<"hello"<<endl;
         guest=one;}}
-else if(uname=="Anish"){
+if(uname=="Anish"){
     if(upass=="abc"){
         guest=two;}}
-else if(uname=="Om"){
+if(uname=="Om"){
     if(upass=="abc"){
         guest=three;}}
-else{
-    cout<<"that usernme does not exist."<<endl;}
+
 };
 
 
 int main(){
 checkuser();
-
+string data;
+cout<<"welcome Mr."<<guest.uid<<endl;
+cout<<"please select which details would you like to access:" <<endl;
+if(guest.role=="patient"){
+    cout<<" name, family history, disease, symptoms, medication, diet, medical process and result"<<endl;
+    cin>>data;
+    if(data=="name"){cout<<done.name<<endl;}
+    else if(data=="family history"){cout<<done.famhis<<endl;}
+    else if(data=="disease"){cout<<done.disease<<endl;}
+    else if(data=="symptoms"){cout<<done.symp<<endl;}
+    else if(data=="medication"){cout<<done.medi<<endl;}
+    else if(data=="diet"){cout<<done.diet<<endl;}
+    else if(data=="medical process"){cout<<done.proc<<endl;}
+    else if(data=="result"){cout<<done.res<<endl;}}
+if(guest.role=="doctor"){
+    cout<<"name, disease, medication, diet, medical process and result"<<endl;
+     if(data=="name"){cout<<done.name<<endl;}
+     else if(data=="disease"){cout<<done.disease<<endl;}
+     else if(data=="medication"){cout<<done.medi<<endl;}
+    else if(data=="diet"){cout<<done.diet<<endl;}
+    else if(data=="medical process"){cout<<done.proc<<endl;}
+    else if(data=="result"){cout<<done.res<<endl;}}
+if(guest.role=="thirdp"){
+    cout<<"name, disease, diet and result"<<endl;}
 }
